@@ -2,6 +2,19 @@
 
 ## Laravel
 
+### Example models
+A ```User``` has one ```PersonalInfo``` pointing to it. ```PersonalInfo``` is a model with extra person data.   
+```User``` hasOne > ----- < belongsTo ```PersonalInfo```   
+
+A ```User``` has multiple ```Post``` pointing towards it.   
+```User``` hasMany > ----- < belongsTo ```Post```   
+
+A ```Post``` has multiple ```Comment``` pointing towards it.   
+```Post``` hasMany > ----- < ```belongsTo```   
+
+Multiple ```Post``` have multiple ```Categories```, they connect through the ```category_post``` table.    
+```Post``` belongsToMany > ----- < belongsToMany ```Categories``` 
+
 ### Caching unique select queries
 
 You can cache all select queries in a request, so no double queries get executed. To acomplisch this you can add the ```App\Traits\CacheQueryBuilderTrait``` trait to your model. This will overrule the ```newBaseQueryBuilder``` of the model with it's own builder (```App\Database\CacheQueryBuilder```).
