@@ -29,18 +29,18 @@ class DatabaseSeeder extends Seeder
         ]);
 
         User::factory()
-            ->count(10)
+            ->count(15)
             ->has(
                 Post::factory()
                     ->has(
                         Comment::factory()
-                            ->count(4)
+                            ->count(12)
                     )
                     ->has(
                         Category::factory()
-                            ->count(2)
+                            ->count(3)
                     )
-                    ->count(3)
+                    ->count(9)
             )
             ->has(PersonalInfo::factory())
             ->create();

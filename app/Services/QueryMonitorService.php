@@ -51,7 +51,7 @@ class QueryMonitorService
         Log::info(' !!! Queries grouped by unique structure and executed more then once. !!! ');
 
         $totalQueries = 0;
-        foreach ($this->queryData['unique_queries_different_parameters'] as $key => $query) {
+        foreach (Arr::get($this->queryData, 'unique_queries_different_parameters', []) as $key => $query) {
             $totalQueries = $totalQueries + $query['timesExecuted'];
             if ($query['timesExecuted'] > 1) {
                 Log::info('table: ' . $query['table'] . ' executed ' . $query['timesExecuted'] . ' times, total time: ' . $query['totalTime'] . ' avg time per execution: ' . $query['avgTime'] . ' query: ' . $query['sql']);
@@ -61,7 +61,7 @@ class QueryMonitorService
 
         Log::info(' !!! Queries grouped by unique structure & parameters and executed more then once. !!! ');
         $totalQueries = 0;
-        foreach ($this->queryData['unique_queries_unique_parameters'] as $key => $query) {
+        foreach (Arr::get($this->queryData, 'unique_queries_unique_parameters', []) as $key => $query) {
             $totalQueries = $totalQueries + $query['timesExecuted'];
             if ($query['timesExecuted'] > 1) {
                 Log::info('table: ' . $query['table'] . ' executed ' . $query['timesExecuted'] . ' times, total time: ' . $query['totalTime'] . ' avg time per execution: ' . $query['avgTime'] . ' query: ' . $query['sql'] . ' query: ' . $query['bindings']);
