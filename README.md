@@ -2,7 +2,7 @@
 
 ## Laravel
 
-### Example models
+### Used example models
 A ```User``` has one ```PersonalInfo``` pointing to it. ```PersonalInfo``` is a model with extra person data.   
 ```User``` hasOne > ----- < belongsTo ```PersonalInfo```   
 
@@ -14,6 +14,9 @@ A ```Post``` has multiple ```Comment``` pointing towards it.
 
 Multiple ```Post``` have multiple ```Categories```, they connect through the ```category_post``` table.    
 ```Post``` belongsToMany > ----- < belongsToMany ```Categories``` 
+
+### Eloquent queries
+
 
 ### Caching unique select queries
 
