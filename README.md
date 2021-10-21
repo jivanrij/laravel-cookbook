@@ -1,6 +1,6 @@
-# Laravel samples
+# Laravel Cookbook
 
-## Laravel
+## Structure
 
 ### Used example models
 A ```User``` has one ```PersonalInfo``` pointing to it. ```PersonalInfo``` is a model with extra person data.   
