@@ -16,7 +16,10 @@ Multiple ```Post``` have multiple ```Categories```, they connect through the ```
 ```Post``` belongsToMany > ----- < belongsToMany ```Categories``` 
 
 ### Eloquent
-[Eager loading relationships & limiting fields](https://github.com/jivanrij/laravel-cookbook/blob/main/app/Services/PostService.php#L21)
+[Limiting fields](https://github.com/jivanrij/laravel-cookbook/blob/main/app/Services/PostService.php#L20)
+[Eager loading relationships](https://github.com/jivanrij/laravel-cookbook/blob/main/app/Services/PostService.php#L27)    
+[Query relationships](https://github.com/jivanrij/laravel-cookbook/blob/main/app/Services/PostService.php#L30)
+
 
 ### Caching unique select queries
 
