@@ -16,7 +16,7 @@ Multiple ```Post``` have multiple ```Categories```, they connect through the ```
 ```Post``` belongsToMany > ----- < belongsToMany ```Categories``` 
 
 ### Eloquent
-[Eager loading relationships & limiting fields](/blob/main/app/Services/PostService.php#L21)
+[Eager loading relationships & limiting fields](https://github.com/jivanrij/laravel-cookbook/blob/main/app/Services/PostService.php#L21)
 
 ### Caching unique select queries
 
@@ -25,11 +25,11 @@ Now all select queries get cached for one second within the scope of the request
 
 ### Detailed query log
 
-[```App\Services\QueryMonitorService```](/blob/main/app/Services/QueryMonitorService.php) provides logic to register and log a lot of performance related details about all the queries done to the database.    
-[```App\Facades\QueryMonitorFacade```](/blob/main/app/Facades/QueryMonitorFacade.php) is the Facade class of the [```App\Services\QueryMonitorService```](/blob/main/app/Facades/QueryMonitorFacade.php). 
+[```App\Services\QueryMonitorService```](https://github.com/jivanrij/laravel-cookbook/blob/main/app/Services/QueryMonitorService.php) provides logic to register and log a lot of performance related details about all the queries done to the database.    
+[```App\Facades\QueryMonitorFacade```](https://github.com/jivanrij/laravel-cookbook/blob/main/app/Facades/QueryMonitorFacade.php) is the Facade class of the [```App\Services\QueryMonitorService```](https://github.com/jivanrij/laravel-cookbook/blob/main/app/Facades/QueryMonitorFacade.php). 
 
 
-Add the following method to [```App\Http\Kernel```](/blob/main/app/Http/Kernel.php):
+Add the following method to [```App\Http\Kernel```](https://github.com/jivanrij/laravel-cookbook/blob/main/app/Http/Kernel.php):
 ```php
     public function terminate($request, $response)
     {
@@ -40,13 +40,13 @@ Add the following method to [```App\Http\Kernel```](/blob/main/app/Http/Kernel.p
 ```
 
 
-Put the following in the [```App\Providers\AppServiceProvider::register()```](/blob/main/app/Providers/AppServiceProvider.php#L17):
+Put the following in the [```App\Providers\AppServiceProvider::register()```](https://github.com/jivanrij/laravel-cookbook/blob/main/app/Providers/AppServiceProvider.php#L17):
 ```php
 // Registers the query listener
 \App\Facades\QueryMonitorFacade::injectListener();
 ```
 
-Put the following in the [```App\Providers\AppServiceProvider::boot()```](/blob/main/app/Providers/AppServiceProvider.php#L27):
+Put the following in the [```App\Providers\AppServiceProvider::boot()```](https://github.com/jivanrij/laravel-cookbook/blob/main/app/Providers/AppServiceProvider.php#L27):
 ```php
 // Start listening for queries
 \App\Facades\QueryMonitorFacade::startListening();
@@ -55,4 +55,4 @@ Put the following in the [```App\Providers\AppServiceProvider::boot()```](/blob/
 ## Laravel Nova
 
 ### Resource forms
-[App\Nova\Actions\FlowAction](/blob/main/app/Nova/Actions/FlowAction.php) contains an example using the epartment/nova-dependency-container package to create some sort of flow in an Action form modal.
+[App\Nova\Actions\FlowAction](https://github.com/jivanrij/laravel-cookbook/blob/main/app/Nova/Actions/FlowAction.php) contains an example using the epartment/nova-dependency-container package to create some sort of flow in an Action form modal.
