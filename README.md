@@ -13,10 +13,11 @@ A ```Post``` has multiple ```Comment``` pointing towards it.
 Multiple ```Post``` have multiple ```Categories```, they connect through the ```category_post``` table.    
 ```Post``` belongsToMany > ----- < belongsToMany ```Categories``` 
 
-### Eloquent
+### Eloquent & other database stuff
 [Limiting fields](https://github.com/jivanrij/laravel-cookbook/blob/main/app/Services/PostService.php#L20)    
 [Eager loading relationships](https://github.com/jivanrij/laravel-cookbook/blob/main/app/Services/PostService.php#L27)    
-[Query relationships](https://github.com/jivanrij/laravel-cookbook/blob/main/app/Services/PostService.php#L30)
+[Query relationships](https://github.com/jivanrij/laravel-cookbook/blob/main/app/Services/PostService.php#L30)    
+[Indexes](https://github.com/jivanrij/laravel-cookbook/blob/main/app/Http/Controllers/PostController.php#L10)
 
 
 ### Caching unique select queries
