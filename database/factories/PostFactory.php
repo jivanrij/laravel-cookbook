@@ -20,6 +20,7 @@ class PostFactory extends Factory
 
         return [
             'title' => ucfirst($this->faker->words(4, true)),
+            'sub_title' => ucfirst($this->faker->words(4, true)),
             'user_id' => User::all()->random()->id
         ];
     }

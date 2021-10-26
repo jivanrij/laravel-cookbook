@@ -27,6 +27,8 @@ class CreatePostsTable extends Migration
 
             $table->string('title');
 
+            $table->string('sub_title');
+
             $table->timestamps();
         });
 

@@ -1,8 +1,6 @@
 # Laravel Cookbook
 
-## Structure
-
-### Used example models
+### Used models and there relations
 A ```User``` has one ```PersonalInfo``` pointing to it. ```PersonalInfo``` is a model with extra person data.   
 ```User``` hasOne > ----- < belongsTo ```PersonalInfo```   
 
@@ -66,6 +64,8 @@ Put the following in the [```App\Providers\AppServiceProvider::boot()```](https:
 
 ### Packages
 
+[Debug bar](https://github.com/barryvdh/laravel-debugbar) Adds a debug bar that provides you with debug information of the request.
+
 [Shift Blueprint](https://github.com/laravel-shift/blueprint) Blueprint is an open-source tool for rapidly generating multiple Laravel components from a single, human-readable definition.
 
 [Medialibrary](https://github.com/spatie/laravel-medialibrary) This package can associate all sorts of files with Eloquent models. It provides a simple API to work with.
@@ -95,3 +95,16 @@ Put the following in the [```App\Providers\AppServiceProvider::boot()```](https:
 [Nova - tags field](https://github.com/spatie/nova-tags-field) This package contains a Nova field to add tags to resources.
 
 [Nova - package skeleton](https://github.com/spatie/skeleton-nova-tool) This repo contains a skeleton to easily create Nova Tool packages.
+
+### Fun facts
+
+#### Creating migrations
+When ending your migration name with to_[table], Laravel automatically adds the Schema call into the new migration file.
+
+The command ```php artisan make:migration foo_bar_to_users``` will results in:
+```php
+Schema::table('users', function (Blueprint $table) {
+    //
+});
+```
+

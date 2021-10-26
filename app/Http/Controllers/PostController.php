@@ -7,14 +7,16 @@ use Illuminate\Http\Request;
 
 class PostController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function index()
     {
-        //
+        // You can use the Laravel debugbar to check out the time of the queries.
+
+        // Slow query because the field has no index.
+        Post::orderBy('sub_title')->simplePaginate();
+        // Fast query because the field has an index.
+        Post::orderBy('title')->simplePaginate();
+
+        return view('laravel');
     }
 
     /**

@@ -29,21 +29,24 @@ class DatabaseSeeder extends Seeder
         ]);
 
         User::factory()
-            ->count(15)
+            ->count(20)
             ->has(
                 Post::factory()
                     ->has(
                         Comment::factory()
-                            ->count(12)
+                            ->count(4)
                     )
                     ->has(
                         Category::factory()
-                            ->count(3)
+                            ->count(2)
                     )
-                    ->count(9)
+                    ->count(30)
             )
             ->has(PersonalInfo::factory())
             ->create();
 
+
+        // Create some more posts to be able to test the index properly
+        Post::factory()->count(1000);
     }
 }
