@@ -24,6 +24,7 @@ class PostService
     {
         // Get's all the Posts with only the related User id's and name's through relation 'user' and the title
         // from the PersonalInfo model through the 'personalInfo' relation on the related User.
+        // This reduces the memory used by this query.
         return Post::with(['user:id,name', 'user.personalInfo:title'])->limit(5)->get();
     }
 

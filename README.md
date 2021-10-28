@@ -13,12 +13,12 @@ A ```Post``` has multiple ```Comment``` pointing towards it.
 Multiple ```Post``` have multiple ```Categories```, they connect through the ```category_post``` table.    
 ```Post``` belongsToMany > ----- < belongsToMany ```Categories``` 
 
-### Eloquent & other database stuff
+### Eloquent & Database related examples
 [Limiting fields](https://github.com/jivanrij/laravel-cookbook/blob/main/app/Services/PostService.php#L20)    
 [Eager loading relationships](https://github.com/jivanrij/laravel-cookbook/blob/main/app/Services/PostService.php#L27)    
 [Query relationships](https://github.com/jivanrij/laravel-cookbook/blob/main/app/Services/PostService.php#L30)    
-[Indexes](https://github.com/jivanrij/laravel-cookbook/blob/main/app/Http/Controllers/PostController.php#L10)
-
+[Indexes](https://github.com/jivanrij/laravel-cookbook/blob/main/app/Http/Controllers/PostController.php#L10)    
+[Returning relation data](https://github.com/jivanrij/laravel-cookbook/blob/main/app/Models/Post.php#L40)    
 
 ### Caching unique select queries
 
@@ -90,6 +90,8 @@ Put the following in the [```App\Providers\AppServiceProvider::boot()```](https:
 [Nova - Tiptap Editor Field](https://github.com/manogi/nova-tiptap) A WYSIWYG editor that's probably better then Trix.
 
 [Nova - Collapsible Resource Manager](https://github.com/dcasia/collapsible-resource-manager)
+
+[Nova - Resource Navigation Tab](https://novapackages.com/packages/digital-creative/resource-navigation-tab)
 
 [Nova - translatable](https://github.com/spatie/nova-translatable) This package contains a Translatable class you can use to make any Nova field type translatable.
 

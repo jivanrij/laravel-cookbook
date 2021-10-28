@@ -16,6 +16,15 @@ class PostController extends Controller
         // Fast query because the field has an index.
         Post::orderBy('title')->simplePaginate();
 
+        // 1 statement, 2.5 ms
+        Post::withLastCommentDate()->orderBy('created_at')->simplePaginate();
+
+        // 16 statements, 9 ms
+        $posts = Post::orderBy('created_at')->simplePaginate();
+        foreach($posts as $post) {
+            $post->comments()->latest()->first()->created_at;
+        }
+
         return view('laravel');
     }
 

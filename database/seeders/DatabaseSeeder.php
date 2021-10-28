@@ -29,7 +29,7 @@ class DatabaseSeeder extends Seeder
         ]);
 
         User::factory()
-            ->count(20)
+            ->count(10)
             ->has(
                 Post::factory()
                     ->has(
@@ -40,7 +40,7 @@ class DatabaseSeeder extends Seeder
                         Category::factory()
                             ->count(2)
                     )
-                    ->count(30)
+                    ->count(100)
             )
             ->has(PersonalInfo::factory())
             ->create();
