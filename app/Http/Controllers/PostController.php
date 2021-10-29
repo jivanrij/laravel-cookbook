@@ -11,19 +11,24 @@ class PostController extends Controller
     {
         // You can use the Laravel debugbar to check out the time of the queries.
 
+
         // Slow query because the field has no index.
         Post::orderBy('sub_title')->simplePaginate();
         // Fast query because the field has an index.
         Post::orderBy('title')->simplePaginate();
 
-        // 1 statement, 2.5 ms
-        Post::withLastCommentDate()->orderBy('created_at')->simplePaginate();
 
-        // 16 statements, 9 ms
+        // Bad: 16 statements, 9 ms
         $posts = Post::orderBy('created_at')->simplePaginate();
         foreach($posts as $post) {
             $post->comments()->latest()->first()->created_at;
         }
+        // Good: 1 statement, 2.5 ms
+        Post::withLastCommentDateAsField()->orderBy('created_at')->simplePaginate();
+
+
+        // Good: 2 statements, but returns the whole Comment model. 2.5 ms
+        Post::withlastCommentAsModel()->orderBy('created_at')->simplePaginate();
 
         return view('laravel');
     }
