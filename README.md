@@ -15,7 +15,7 @@ Multiple ```Post``` have multiple ```Categories```, they connect through the ```
 
 ### Eloquent & Database related examples
 [Limiting fields](https://github.com/jivanrij/laravel-cookbook/blob/main/app/Services/PostService.php#L20)    
-[Reduce memory use when retreiving data](https://github.com/jivanrij/laravel-cookbook/blob/main/tests/EloquentTest.php#L13)
+[Reduce memory use when retreiving data](https://github.com/jivanrij/laravel-cookbook/blob/main/tests/EloquentTest.php#L13)    
 [Eager loading relationships](https://github.com/jivanrij/laravel-cookbook/blob/main/app/Services/PostService.php#L27)    
 [Query relationships](https://github.com/jivanrij/laravel-cookbook/blob/main/app/Services/PostService.php#L30)       
 [Date related query functions](https://github.com/jivanrij/laravel-cookbook/blob/main/tests/EloquentTest.php#L25)    
