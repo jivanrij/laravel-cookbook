@@ -5,7 +5,6 @@ namespace App\Nova;
 use App\Nova\Actions\FlowAction;
 use App\Nova\Actions\LayoutAction;
 use Illuminate\Http\Request;
-use Laravel\Nova\Fields\Gravatar;
 use Laravel\Nova\Fields\HasMany;
 use Laravel\Nova\Fields\HasOne;
 use Laravel\Nova\Fields\ID;

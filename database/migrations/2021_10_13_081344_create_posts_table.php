@@ -29,6 +29,8 @@ class CreatePostsTable extends Migration
 
             $table->string('sub_title');
 
+            $table->integer('views')->default(0);
+
             $table->timestamps();
         });
 

@@ -7,11 +7,9 @@ use App\Models\Comment;
 use App\Models\PersonalInfo;
 use App\Models\Post;
 use App\Models\User;
-use Faker\Provider\Person;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
-use Illuminate\Support\Str;
 
 class DatabaseSeeder extends Seeder
 {
