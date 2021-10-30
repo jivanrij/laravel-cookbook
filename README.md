@@ -15,17 +15,21 @@ Multiple ```Post``` have multiple ```Categories```, they connect through the ```
 
 ### Eloquent & Database related examples
 [Limiting fields](https://github.com/jivanrij/laravel-cookbook/blob/main/app/Services/PostService.php#L20)    
+[Reduce memory use when retreiving data](https://github.com/jivanrij/laravel-cookbook/blob/main/tests/EloquentTest.php#L13)
 [Eager loading relationships](https://github.com/jivanrij/laravel-cookbook/blob/main/app/Services/PostService.php#L27)    
-[Query relationships](https://github.com/jivanrij/laravel-cookbook/blob/main/app/Services/PostService.php#L30)    
+[Query relationships](https://github.com/jivanrij/laravel-cookbook/blob/main/app/Services/PostService.php#L30)       
+[Date related query functions](https://github.com/jivanrij/laravel-cookbook/blob/main/tests/EloquentTest.php#L25)    
 [Indexes](https://github.com/jivanrij/laravel-cookbook/blob/main/app/Http/Controllers/PostController.php#L10)    
 [Returning relation data](https://github.com/jivanrij/laravel-cookbook/blob/main/app/Models/Post.php#L40)    
+[Incrementing values](https://github.com/jivanrij/laravel-cookbook/blob/main/tests/EloquentTest.php#L73)    
+[Replicating a model](https://github.com/jivanrij/laravel-cookbook/blob/main/tests/EloquentTest.php#L86)    
 
-### Caching unique select queries
+#### Caching unique select queries
 
-You can cache all select queries in a request, so no double queries get executed. To acomplisch this you can add the ```App\Traits\CacheQueryBuilderTrait``` trait to your model. This will overrule the ```newBaseQueryBuilder``` of the model with it's own builder (```App\Database\CacheQueryBuilder```).
+You can cache all select queries in a request, so no double queries get executed. To acomplisch this you can add the [```App\Traits\CacheQueryBuilderTrait```](https://github.com/jivanrij/laravel-cookbook/blob/main/app/Traits/CacheQueryBuilderTrait.php) trait to your model. This will overrule the [```newBaseQueryBuilder```](https://github.com/jivanrij/laravel-cookbook/blob/main/app/Traits/CacheQueryBuilderTrait.php#L14) of the model with it's own builder ([```App\Database\CacheQueryBuilder```](https://github.com/jivanrij/laravel-cookbook/blob/main/app/Database/CacheQueryBuilder.php)).
 Now all select queries get cached for one second within the scope of the request.
 
-### Detailed query log
+#### Detailed query log
 
 [```App\Services\QueryMonitorService```](https://github.com/jivanrij/laravel-cookbook/blob/main/app/Services/QueryMonitorService.php) provides logic to register and log a lot of performance related details about all the queries done to the database.    
 [```App\Facades\QueryMonitorFacade```](https://github.com/jivanrij/laravel-cookbook/blob/main/app/Facades/QueryMonitorFacade.php) is the Facade class of the [```App\Services\QueryMonitorService```](https://github.com/jivanrij/laravel-cookbook/blob/main/app/Facades/QueryMonitorFacade.php). 
