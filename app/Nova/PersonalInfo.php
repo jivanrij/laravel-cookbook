@@ -28,6 +28,8 @@ class PersonalInfo extends Resource
                 ->sortable(),
 
             Text::make('Title'),
+            Text::make('Hobby'),
+            Text::make('Nickname'),
 
             BelongsTo::make('User')
         ];

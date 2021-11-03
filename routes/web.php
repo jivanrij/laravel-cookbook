@@ -18,3 +18,5 @@ Route::get('/', function () {
 });
 
 Route::get('/posts', [\App\Http\Controllers\PostController::class, 'index']);
+
+Route::get('/search/{terms}', [\App\Http\Controllers\SearchController::class, 'search']);

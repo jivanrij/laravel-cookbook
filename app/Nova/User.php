@@ -18,7 +18,7 @@ class User extends Resource
     public static $title = 'name';
 
     public static $search = [
-        'id', 'name', 'email',
+        'id', 'first_name', 'last_name', 'email',
     ];
 
     public function fields(Request $request)
@@ -26,7 +26,11 @@ class User extends Resource
         return [
             ID::make()->sortable(),
 
-            Text::make('Name')
+            Text::make('First name')
+                ->sortable()
+                ->rules('required', 'max:255'),
+
+            Text::make('Last name')
                 ->sortable()
                 ->rules('required', 'max:255'),
 

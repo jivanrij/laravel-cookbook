@@ -20,6 +20,8 @@ class PersonalInfoFactory extends Factory
 
         return [
             'title' => ucfirst($this->faker->words(4, true)),
+            'hobby' => $this->faker->word(),
+            'nickname' => ucfirst($this->faker->userName()),
             'user_id' => User::all()->random()->id
         ];
     }

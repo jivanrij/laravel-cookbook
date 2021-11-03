@@ -22,6 +22,8 @@ class CreatePersonalInfosTable extends Migration
             // $table->foreignId('user_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
 
             $table->string('title');
+            $table->string('hobby');
+            $table->string('nickname');
 
             $table->timestamps();
         });
