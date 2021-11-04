@@ -14,15 +14,16 @@ Multiple ```Post``` have multiple ```Categories```, they connect through the ```
 ```Post``` belongsToMany > ----- < belongsToMany ```Categories``` 
 
 ### Eloquent & Database related examples
-[Limiting fields](https://github.com/jivanrij/laravel-cookbook/blob/main/app/Services/PostService.php#L20)    
-[Reduce memory use when retreiving data](https://github.com/jivanrij/laravel-cookbook/blob/main/tests/EloquentTest.php#L13)    
-[Eager loading relationships](https://github.com/jivanrij/laravel-cookbook/blob/main/app/Services/PostService.php#L27)    
-[Query relationships](https://github.com/jivanrij/laravel-cookbook/blob/main/app/Services/PostService.php#L30)       
-[Date related query functions](https://github.com/jivanrij/laravel-cookbook/blob/main/tests/EloquentTest.php#L25)    
-[Indexes](https://github.com/jivanrij/laravel-cookbook/blob/main/app/Http/Controllers/PostController.php#L10)    
-[Returning relation data](https://github.com/jivanrij/laravel-cookbook/blob/main/app/Models/Post.php#L40)    
-[Incrementing values](https://github.com/jivanrij/laravel-cookbook/blob/main/tests/EloquentTest.php#L73)    
-[Replicating a model](https://github.com/jivanrij/laravel-cookbook/blob/main/tests/EloquentTest.php#L86)    
+[Eloquent - with - Limiting the amount of loaded fields](https://github.com/jivanrij/laravel-cookbook/blob/main/app/Services/PostService.php#L20)    
+[Eloquent - with - Limiting the amount of fields loaded in relations](https://github.com/jivanrij/laravel-cookbook/blob/main/app/Services/PostService.php#L23)    
+[Eloquent - toBase - Prevent Model loading, reducing memory usage](https://github.com/jivanrij/laravel-cookbook/blob/main/tests/EloquentTest.php#L13)    
+[Eloquent - whereHas - Only query if the realtion exists with some condition](https://github.com/jivanrij/laravel-cookbook/blob/main/app/Services/PostService.php#L30)    
+[Eloquent - whereDate - Several data related where examples](https://github.com/jivanrij/laravel-cookbook/blob/main/tests/EloquentTest.php#L25)        
+[Database - Index test example](https://github.com/jivanrij/laravel-cookbook/blob/main/app/Http/Controllers/PostController.php#L10)  
+[Eloquent - addSelect - Add a field on the Model you are retrieving from another model](https://github.com/jivanrij/laravel-cookbook/blob/main/app/Models/Post.php#L40)    
+[Eloquent - increment - Incrementing values](https://github.com/jivanrij/laravel-cookbook/blob/main/tests/EloquentTest.php#L73)        
+[Eloquent - replicate - Replicate a model](https://github.com/jivanrij/laravel-cookbook/blob/main/tests/EloquentTest.php#L86)  
+[Eloquent - Search with multiple terms over multiple models](https://github.com/jivanrij/laravel-cookbook/blob/main/app/Models/User.php#L60)    
 
 #### Caching unique select queries
 
