@@ -2,10 +2,10 @@
 
 namespace App\Models;
 
+use App\Casts\UserFullNameCast;
 use App\Traits\CacheQueryBuilderTrait;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
-use Illuminate\Http\Request;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
 
@@ -23,6 +23,7 @@ class User extends Authenticatable
      */
     protected $fillable = [
         'first_name',
+        'middle_name',
         'last_name',
         'email',
         'password',
@@ -45,6 +46,7 @@ class User extends Authenticatable
      */
     protected $casts = [
         'email_verified_at' => 'datetime',
+        'full_name' => UserFullNameCast::class,
     ];
 
     public function personalInfo()
@@ -61,7 +63,11 @@ class User extends Authenticatable
     {
         // For each given term
         collect($searchTerms)->filter()->each(function ($term) use ($query) {
-            $term = '%' . $term . '%';
+
+            // Don't put % before the search term, this prevents the database from using the indexes.
+            // Because it's possible to search on 'This is "foo bar"' resulting in 'foo bar' being one term
+            // this will probably be no issue.
+            $term = $term . '%';
 
             // Add the following to the query
 
