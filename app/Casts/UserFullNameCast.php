@@ -22,8 +22,8 @@ class UserFullNameCast implements CastsAttributes
         $firstName = Str::before($value, ' ');
         $lastName = Str::afterLast($value, ' ');
 
-        $middleName = Str::replace($firstName . ' ','', $value);
-        $middleName = Str::replace(' ' . $lastName,'', $middleName);
+        $middleName = Str::replace($firstName . ' ', '', $value);
+        $middleName = Str::replace(' ' . $lastName, '', $middleName);
 
         return [
             'first_name' => $firstName,

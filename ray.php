@@ -17,7 +17,7 @@ return [
     * When enabled, all things passed to `dump` or `dd`
     * will be sent to Ray as well.
     */
-    'send_dumps_to_ray' => env('SEND_DUMPS_TO_RAY', true),
+    'send_dumps_to_ray' => env('SEND_DUMPS_TO_RAY', false),
 
     /*
     * When enabled all job events will automatically be sent to Ray.
@@ -28,7 +28,7 @@ return [
     * When enabled, all things logged to the application log
     * will be sent to Ray as well.
     */
-    'send_log_calls_to_ray' => env('SEND_LOG_CALLS_TO_RAY', true),
+    'send_log_calls_to_ray' => env('SEND_LOG_CALLS_TO_RAY', false),
 
     /*
     * When enabled, all queries will automatically be sent to Ray.
@@ -66,7 +66,7 @@ return [
     * When using Homestead with the VirtualBox provider, you can replace localhost with '10.0.2.2'
     * When using Homestead with the Parallels provider, you can replace localhost with '10.211.55.2'
     */
-    'host' => env('RAY_HOST', 'localhost'),
+    'host' => env('RAY_HOST', '10.0.2.2'),
 
     /*
     * The port number used to communicate with the Ray app.

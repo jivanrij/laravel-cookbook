@@ -20,12 +20,26 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('users')->insert([
-            'first_name' => 'Jonathan',
-            'last_name' => 'van Rij',
-            'email' => 'jonathan@blijnder.nl',
-            'password' => Hash::make('secret'),
-        ]);
+        User::factory()
+            ->has(
+                Post::factory()
+                    ->has(
+                        Comment::factory()
+                            ->count(4)
+                    )
+                    ->has(
+                        Category::factory()
+                            ->count(2)
+                    )
+                    ->count(100)
+            )
+            ->has(PersonalInfo::factory())
+            ->create([
+                'first_name' => 'Jonathan',
+                'last_name' => 'van Rij',
+                'email' => 'jonathan@blijnder.nl',
+                'password' => Hash::make('secret'),
+            ]);
 
         User::factory()
             ->count(10)

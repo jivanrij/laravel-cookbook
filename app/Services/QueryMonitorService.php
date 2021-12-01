@@ -3,6 +3,7 @@
 namespace App\Services;
 
 use App\Facades\QueryMonitorFacade;
+use Illuminate\Database\Events\QueryExecuted;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
@@ -58,7 +59,6 @@ class QueryMonitorService
             }
         }
 
-
         Log::info(' !!! Queries grouped by unique structure & parameters and executed more then once. !!! ');
         $totalQueries = 0;
         foreach (Arr::get($this->queryData, 'unique_queries_unique_parameters', []) as $key => $query) {
@@ -74,15 +74,17 @@ class QueryMonitorService
 
     public function injectListener()
     {
-        DB::listen(function($executedQuery) {
+        DB::listen(function ($executedQuery) {
             if (QueryMonitorFacade::isActive()) {
-                $this->rememberQuery($executedQuery, 'unique_queries_different_parameters', hash('md5',$executedQuery->sql . $executedQuery->connection->getName()));
-                $this->rememberQuery($executedQuery, 'unique_queries_unique_parameters', hash('md5',$executedQuery->sql . serialize($executedQuery->bindings) . $executedQuery->connection->getName()));
+                $this->rememberQuery($executedQuery, 'unique_queries_different_parameters',
+                    hash('md5', $executedQuery->sql . $executedQuery->connection->getName()));
+                $this->rememberQuery($executedQuery, 'unique_queries_unique_parameters', hash('md5',
+                    $executedQuery->sql . serialize($executedQuery->bindings) . $executedQuery->connection->getName()));
             }
         });
     }
 
-    public function rememberQuery(\Illuminate\Database\Events\QueryExecuted $executedQuery, $category, $key)
+    public function rememberQuery(QueryExecuted $executedQuery, $category, $key)
     {
         $totalTime = Arr::get($this->queryData, $category . '.' . $key . '.totalTime', (float) 0);
         $count = Arr::get($this->queryData, $category . '.' . $key . '.timesExecuted', 0);

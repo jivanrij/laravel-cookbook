@@ -12,9 +12,7 @@ class Category extends Resource
 
     public static $model = \App\Models\Category::class;
 
-
     public static $title = 'title';
-
 
     public static $search = [
         'title',
@@ -38,24 +36,20 @@ class Category extends Resource
         ];
     }
 
-
     public function cards(Request $request)
     {
         return [];
     }
-
 
     public function filters(Request $request)
     {
         return [];
     }
 
-
     public function lenses(Request $request)
     {
         return [];
     }
-
 
     public function actions(Request $request)
     {

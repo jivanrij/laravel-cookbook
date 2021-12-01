@@ -12,14 +12,11 @@ class Comment extends Resource
 
     public static $model = \App\Models\Comment::class;
 
-
     public static $title = 'title';
-
 
     public static $search = [
         'title',
     ];
-
 
     public function fields(Request $request)
     {
@@ -29,28 +26,24 @@ class Comment extends Resource
 
             Text::make('Title'),
 
-            BelongsTo::make('Post')
+            BelongsTo::make('Post'),
         ];
     }
-
 
     public function cards(Request $request)
     {
         return [];
     }
 
-
     public function filters(Request $request)
     {
         return [];
     }
 
-
     public function lenses(Request $request)
     {
         return [];
     }
-
 
     public function actions(Request $request)
     {

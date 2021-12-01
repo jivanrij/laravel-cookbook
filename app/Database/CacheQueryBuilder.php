@@ -14,7 +14,7 @@ class CacheQueryBuilder extends Builder
      */
     protected function runSelect()
     {
-        return Cache::store('array')->remember($this->getCacheKey(), 1, function() {
+        return Cache::store('array')->remember($this->getCacheKey(), 1, function () {
             return parent::runSelect();
         });
     }
@@ -27,7 +27,7 @@ class CacheQueryBuilder extends Builder
     protected function getCacheKey()
     {
         return json_encode([
-            $this->toSql() => $this->getBindings()
+            $this->toSql() => $this->getBindings(),
         ]);
     }
 }

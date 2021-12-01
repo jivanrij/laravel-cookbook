@@ -72,14 +72,31 @@ class User extends Authenticatable
             // Add the following to the query
 
             // Wrap all parts within parentheses for each term
-            $query->where(function($query) use ($term) {
+            $query->where(function ($query) use ($term) {
 
                 // Query fields in base model and load and query relation
-                $query->where('first_name', 'like', $term)
-                    ->orWhere('last_name', 'like', $term)
-                    ->orWhereHas('personalInfo', function($query) use ($term) {
-                        $query->where('title', 'like', $term);
-                    });
+//                $query->where(function($query) use ($term) {
+//                    // Query fields in base model and load and query relation
+//                    $query->where('first_name', 'like', $term)
+//                        ->orWhere('last_name', 'like', $term)
+//                        ->orWhereIn('id', function($query) use ($term) {
+//                            $query->select('user_id')
+//                                ->from('personal_infos')
+//                                ->where('title', 'like', $term);
+//                        });
+//                });
+
+                $query->where(function ($query) use ($term) {
+                    // Query fields in base model and load and query relation
+                    $query->where('title', 'like', $term)
+                        ->orWhereIn('user_id', function ($query) use ($term) {
+                            $query->select('id')
+                                ->from('users')
+                                ->where('first_name', 'like', $term)
+                                ->orWhere('last_name', 'like', $term);
+                        });
+                });
+
             });
         });
 

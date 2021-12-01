@@ -50,11 +50,10 @@ class Post extends Model
                 Comment::select('created_at')
                     ->whereColumn('post_id', 'posts.id')
                     ->latest()
-                    ->take(1)
+                    ->take(1),
         ])
             ->withCasts(['last_comment_date' => 'datetime']); // and formats the time
     }
-
 
     /**
      * Dynamic relation example.
@@ -74,12 +73,14 @@ class Post extends Model
     {
         return $this->belongsTo(Comment::class);
     }
+
     public function scopeWithlastCommentAsModel($query)
     {
-        $query->addSelect(['last_comment_id' => Comment::select('id')
+        $query->addSelect([
+            'last_comment_id' => Comment::select('id')
                 ->whereColumn('post_id', 'posts.id')
                 ->latest()
-                ->take(1)
+                ->take(1),
         ])->with('lastComment');
     }
 

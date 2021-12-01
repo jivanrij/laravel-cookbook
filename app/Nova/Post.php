@@ -14,14 +14,11 @@ class Post extends Resource
 
     public static $model = \App\Models\Post::class;
 
-
     public static $title = 'title';
-
 
     public static $search = [
         'title',
     ];
-
 
     public function fields(Request $request)
     {
@@ -51,24 +48,20 @@ class Post extends Resource
         ];
     }
 
-
     public function cards(Request $request)
     {
         return [];
     }
-
 
     public function filters(Request $request)
     {
         return [];
     }
 
-
     public function lenses(Request $request)
     {
         return [];
     }
-
 
     public function actions(Request $request)
     {

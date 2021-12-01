@@ -29,7 +29,7 @@ class FlowAction extends Action
         return [
             Select::make('Action', 'action')->options([
                 0 => 'Install site for customer',
-                1 => 'Install site for reseller'
+                1 => 'Install site for reseller',
             ])
                 ->displayUsingLabels()
                 ->required()
@@ -48,8 +48,6 @@ class FlowAction extends Action
                 ])->required(true)
                     ->rules(['required', new ValidateFalseRule]),
 
-
-
                 NovaDependencyContainer::make([
                     Textarea::make('Information', 'customer')
                         ->required(true)
@@ -60,7 +58,7 @@ class FlowAction extends Action
                 Heading::make('Site information'),
                 Select::make('Moodle version', 'moodle_version')->options([
                     0 => 'LMS',
-                    1 => 'MWP'
+                    1 => 'MWP',
                 ])->required(true)
                     ->rules(['required']),
                 NovaDependencyContainer::make([

@@ -12,14 +12,11 @@ class PersonalInfo extends Resource
 
     public static $model = \App\Models\PersonalInfo::class;
 
-
     public static $title = 'title';
-
 
     public static $search = [
         'title',
     ];
-
 
     public function fields(Request $request)
     {
@@ -31,28 +28,24 @@ class PersonalInfo extends Resource
             Text::make('Hobby'),
             Text::make('Nickname'),
 
-            BelongsTo::make('User')
+            BelongsTo::make('User'),
         ];
     }
-
 
     public function cards(Request $request)
     {
         return [];
     }
 
-
     public function filters(Request $request)
     {
         return [];
     }
 
-
     public function lenses(Request $request)
     {
         return [];
     }
-
 
     public function actions(Request $request)
     {

@@ -26,14 +26,14 @@ class LayoutAction extends Action
             Flexible::make('Content')
                 ->addLayout('Simple content section', 'wysiwyg', [
                     Text::make('Title'),
-                    Markdown::make('Content')
+                    Markdown::make('Content'),
                 ])
                 ->addLayout('Video section', 'video', [
                     Text::make('Title'),
                     Image::make('Video Thumbnail', 'thumbnail'),
                     Text::make('Video ID (YouTube)', 'video'),
-                    Text::make('Video Caption', 'caption')
-                ])
+                    Text::make('Video Caption', 'caption'),
+                ]),
         ];
     }
 }

@@ -80,7 +80,7 @@ class User extends Resource
     {
         return [
             new FlowAction,
-            new LayoutAction
+            new LayoutAction,
         ];
     }
 }
