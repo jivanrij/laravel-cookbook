@@ -31,7 +31,7 @@ class DatabaseSeeder extends Seeder
                         Category::factory()
                             ->count(2)
                     )
-                    ->count(100)
+                    ->count(10)
             )
             ->has(PersonalInfo::factory())
             ->create([
@@ -53,13 +53,13 @@ class DatabaseSeeder extends Seeder
                         Category::factory()
                             ->count(2)
                     )
-                    ->count(100)
+                    ->count(10)
             )
             ->has(PersonalInfo::factory())
             ->create();
 
 
         // Create some more posts to be able to test the index properly
-        Post::factory()->count(1000);
+        Post::factory()->count(100);
     }
 }

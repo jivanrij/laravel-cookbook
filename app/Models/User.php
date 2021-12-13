@@ -3,6 +3,10 @@
 namespace App\Models;
 
 use App\Casts\UserFullNameCast;
+use App\Models\Relations\HasManyComments;
+use App\Models\Relations\HasManyPosts;
+use App\Models\Relations\HasOnePersonalInfo;
+use App\Models\Relations\MorphOneImage;
 use App\Traits\CacheQueryBuilderTrait;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
@@ -15,6 +19,10 @@ class User extends Authenticatable
     use HasFactory;
     use Notifiable;
     use CacheQueryBuilderTrait;
+    use HasOnePersonalInfo;
+    use HasManyPosts;
+    use HasManyComments;
+    use MorphOneImage;
 
     /**
      * The attributes that are mass assignable.
@@ -48,16 +56,6 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
         'full_name' => UserFullNameCast::class,
     ];
-
-    public function personalInfo()
-    {
-        return $this->hasOne(PersonalInfo::class);
-    }
-
-    public function posts()
-    {
-        return $this->hasMany(Post::class);
-    }
 
     public function scopeSearch($query, array $searchTerms = [])
     {

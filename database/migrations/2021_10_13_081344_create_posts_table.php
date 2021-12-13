@@ -16,7 +16,7 @@ class CreatePostsTable extends Migration
             $table->id();
 
             // This makes the needed field for the belongsTo relation with table users
-            $table->foreignIdFor(User::class)->constrained();
+            $table->foreignIdFor(User::class)->constrained()->cascadeOnDelete();
             // is the same as:
             // $table->foreignId('user_id')->constrained();
             // is short for:

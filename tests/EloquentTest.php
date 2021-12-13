@@ -13,7 +13,7 @@ class EloquentTest extends TestCase
     public function test_eloquent_test_fetching_base()
     {
         Post::factory()->count(50)->create();
-        $posts = Post::select(['id','title'])->toBase()->get();
+        $posts = Post::select(['id', 'title'])->toBase()->get();
 
         $post = $posts->pop();
 
@@ -27,17 +27,17 @@ class EloquentTest extends TestCase
         Post::factory()->create([
             'title' => 'first',
             'sub_title' => 'This is the first post.',
-            'created_at' => Carbon::create(2000, 8, 16, 14, 54, 21)->toDate()
+            'created_at' => Carbon::create(2000, 8, 16, 14, 54, 21)->toDate(),
         ]);
 
         Post::factory()->create([
-            'created_at' => Carbon::create(2021, 9, 17, 15, 55, 22)->toDate()
+            'created_at' => Carbon::create(2021, 9, 17, 15, 55, 22)->toDate(),
         ]);
 
         Post::factory()->create([
             'title' => 'latest',
             'sub_title' => 'This is the latest post.',
-            'created_at' => Carbon::create(2022, 10, 18, 16, 56, 23)->toDate()
+            'created_at' => Carbon::create(2022, 10, 18, 16, 56, 23)->toDate(),
         ]);
 
         $this->assertEquals(1,
@@ -91,7 +91,7 @@ class EloquentTest extends TestCase
         ]);
 
         $replicatedPost = $post->replicate()->fill([
-            'title' => 'replicated me'
+            'title' => 'replicated me',
         ]);
 
         $replicatedPost->save();

@@ -2,17 +2,14 @@
 
 namespace App\Models;
 
+use App\Models\Relations\BelongsToUser;
+use App\Models\Relations\MorphOneImage;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 class PersonalInfo extends Model
 {
-    use HasFactory;
-
-    public function user()
-    {
-        return $this->belongsTo(User::class);
-    }
+    use HasFactory, BelongsToUser, MorphOneImage;
 
     public function scopeSearch($query, array $searchTerms = [])
     {

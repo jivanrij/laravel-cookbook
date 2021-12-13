@@ -4,6 +4,7 @@ namespace Database\Factories;
 
 use App\Models\Comment;
 use App\Models\Post;
+use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 class CommentFactory extends Factory
@@ -14,13 +15,10 @@ class CommentFactory extends Factory
 
     public function definition()
     {
-        if (!Post::all()->count()) {
-            Post::factory()->create();
-        }
-
         return [
             'title' => ucfirst($this->faker->words(4, true)),
-            'post_id' => Post::all()->random()->id
+            'post_id' => Post::factory(),
+            'user_id' => User::factory(),
         ];
     }
 }

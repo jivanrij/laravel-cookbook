@@ -14,7 +14,7 @@ class CreateCategoryPostsTable extends Migration
             $table->id();
 
             // This makes the needed field for the belongsTo relation with table users
-            $table->foreignIdFor(Post::class)->constrained();
+            $table->foreignIdFor(Post::class)->constrained()->cascadeOnDelete();
             // is short for:
             // $table->unsignedBigInteger('post_id');
             // $table->foreign('post_id')->references('id')->on('posts');
@@ -22,14 +22,12 @@ class CreateCategoryPostsTable extends Migration
             // $table->foreignId('post_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
 
             // This makes the needed field for the belongsTo relation with table users
-            $table->foreignIdFor(Category::class)->constrained();
+            $table->foreignIdFor(Category::class)->constrained()->cascadeOnDelete();
             // is short for:
             // $table->unsignedBigInteger('category_id');
             // $table->foreign('category_id')->references('id')->on('categories');
             // Optional:
             // $table->foreignId('category_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
-
-            $table->timestamps();
         });
     }
 

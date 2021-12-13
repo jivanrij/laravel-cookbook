@@ -2,36 +2,22 @@
 
 namespace App\Models;
 
+use App\Models\Relations\BelongsToManyCategories;
+use App\Models\Relations\BelongsToUser;
+use App\Models\Relations\HasManyComments;
+use App\Models\Relations\MorphToManyTags;
+use App\Models\Relations\MorphManyImages;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 class Post extends Model
 {
-    use HasFactory;
+    use HasFactory, BelongsToManyCategories, BelongsToUser, HasManyComments, MorphToManyTags, MorphManyImages;
 
     protected $fillable = [
         'title',
         'sub_title',
     ];
-
-    /**
-     * Relations
-     */
-
-    public function categories()
-    {
-        return $this->belongsToMany(Category::class);
-    }
-
-    public function user()
-    {
-        return $this->belongsTo(User::class);
-    }
-
-    public function comments()
-    {
-        return $this->hasMany(Comment::class);
-    }
 
     /**
      * Scopes
