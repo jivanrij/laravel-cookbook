@@ -1,29 +1,28 @@
 # Laravel Cookbook
 
-### Used models and there relations
-A ```User``` has one ```PersonalInfo``` pointing to it. ```PersonalInfo``` is a model with extra person data.   
-```User``` hasOne > ----- < belongsTo ```PersonalInfo```   
+### Models and there relations used in the examples
+![Models and there relations used in the examples](https://raw.githubusercontent.com/jivanrij/laravel-cookbook/main/models.png) 
 
-A ```User``` has multiple ```Post``` pointing towards it.   
-```User``` hasMany > ----- < belongsTo ```Post```   
+### Eloquent examples
 
-A ```Post``` has multiple ```Comment``` pointing towards it.   
-```Post``` hasMany > ----- < ```belongsTo```   
+#### Improving speed & memory usage in Eloquent
 
-Multiple ```Post``` have multiple ```Categories```, they connect through the ```category_post``` table.    
-```Post``` belongsToMany > ----- < belongsToMany ```Categories``` 
+[Eloquent - with - Limiting the amount of loaded fields](https://github.com/jivanrij/laravel-cookbook/blob/main/app/Services/PostService.php#L20)      
+[Eloquent - with - Limiting the amount of fields loaded in relations](https://github.com/jivanrij/laravel-cookbook/blob/main/app/Services/PostService.php#L23)      
+[Eloquent - toBase - Prevent Model loading, reducing memory usage](https://github.com/jivanrij/laravel-cookbook/blob/main/tests/EloquentTest.php#L13)  
+[Eloquent - Speed up retrieving data from related models](https://github.com/jivanrij/laravel-cookbook/blob/main/app/Http/Controllers/PostController.php#L10)
 
-### Eloquent & Database related examples
-[Eloquent - with - Limiting the amount of loaded fields](https://github.com/jivanrij/laravel-cookbook/blob/main/app/Services/PostService.php#L20)    
-[Eloquent - with - Limiting the amount of fields loaded in relations](https://github.com/jivanrij/laravel-cookbook/blob/main/app/Services/PostService.php#L23)    
-[Eloquent - toBase - Prevent Model loading, reducing memory usage](https://github.com/jivanrij/laravel-cookbook/blob/main/tests/EloquentTest.php#L13)    
-[Eloquent - whereHas - Only query if the realtion exists with some condition](https://github.com/jivanrij/laravel-cookbook/blob/main/app/Services/PostService.php#L30)    
-[Eloquent - whereDate - Several data related where examples](https://github.com/jivanrij/laravel-cookbook/blob/main/tests/EloquentTest.php#L25)        
-[Database - Index test example](https://github.com/jivanrij/laravel-cookbook/blob/main/app/Http/Controllers/PostController.php#L10)  
-[Eloquent - addSelect - Add a field on the Model you are retrieving from another model](https://github.com/jivanrij/laravel-cookbook/blob/main/app/Models/Post.php#L40)    
+#### Neat query tricks
+[Eloquent - Search with multiple terms over multiple models](https://github.com/jivanrij/laravel-cookbook/blob/main/app/Models/User.php#L60)  
+[Eloquent - whereHas - Only query if the relation exists with some condition](https://github.com/jivanrij/laravel-cookbook/blob/main/app/Services/PostService.php#L30)
+[Eloquent - addSelect - Add an attribute on a model based on a related models attribute](https://github.com/jivanrij/laravel-cookbook/blob/main/app/Models/Post.php#L40)  
+
+#### Date(time) 
+[Eloquent - whereDate - Several data related where examples](https://github.com/jivanrij/laravel-cookbook/blob/main/tests/EloquentTest.php#L25)
+
+#### Miscellaneous    
 [Eloquent - increment - Incrementing values](https://github.com/jivanrij/laravel-cookbook/blob/main/tests/EloquentTest.php#L73)        
 [Eloquent - replicate - Replicate a model](https://github.com/jivanrij/laravel-cookbook/blob/main/tests/EloquentTest.php#L86)  
-[Eloquent - Search with multiple terms over multiple models](https://github.com/jivanrij/laravel-cookbook/blob/main/app/Models/User.php#L60)    
 
 #### Caching unique select queries
 
