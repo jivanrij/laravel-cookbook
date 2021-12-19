@@ -21,7 +21,8 @@ class CreatePersonalInfosTable extends Migration
             // Optional:
             // $table->foreignId('user_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
 
-            $table->string('title')->index();
+            $table->string('title');
+            $table->string('title_normalised')->virtualAs("regexp_replace(title, '[^A-Za-z0-9]','')")->index();
             $table->string('hobby');
             $table->string('nickname');
 

@@ -13,7 +13,7 @@
 [Eloquent - Speed up retrieving data from related models](https://github.com/jivanrij/laravel-cookbook/blob/main/app/Http/Controllers/PostController.php#L10)
 
 #### Neat query tricks
-[Eloquent - Search with multiple terms over multiple models](https://github.com/jivanrij/laravel-cookbook/blob/main/app/Models/User.php#L60)  
+[Eloquent - Search with multiple terms over multiple models](https://github.com/jivanrij/laravel-cookbook/blob/main/app/Models/PersonalInfo.php#L22)  
 [Eloquent - whereHas - Only query if the relation exists with some condition](https://github.com/jivanrij/laravel-cookbook/blob/main/app/Services/PostService.php#L30)
 [Eloquent - addSelect - Add an attribute on a model based on a related models attribute](https://github.com/jivanrij/laravel-cookbook/blob/main/app/Models/Post.php#L40)  
 
